@@ -1,7 +1,8 @@
 export interface State {
   title: string;
   bridge: Bridge;
-  config?: HConfig;
+  config?: HueConfig;
+  lightConfig?: LightConfig;
 }
 
 export interface Bridge {
@@ -9,7 +10,7 @@ export interface Bridge {
   apiKey: string;
 }
 
-export interface HConfig {
+export interface HueConfig {
   name: string;
   zigbeechannel: number;
   bridgeid: string;
@@ -76,17 +77,76 @@ export interface HConfig {
   starterkitid: string;
   whitelist: {
     [key: string]: {
-      "last use date": Date;
-      "create date": Date;
+      'last use date': Date;
+      'create date': Date;
       name: string;
     };
   };
 }
 
+export interface LightConfig {
+  [key: string]: {
+    state: LightState;
+    swupdate: {
+      state: string;
+      lastinstall: Date;
+    };
+    type: string;
+    name: string;
+    modelid: string;
+    manufacturername: string;
+    productname: string;
+    capabilities: {
+      certified: boolean;
+      control: {
+        mindimlevel: number;
+        maxlumen: number;
+        colorgamuttype: string;
+        colorgamut: number[][];
+        ct: {
+          min: number;
+          max: number;
+        };
+      };
+      streaming: {
+        renderer: boolean;
+        proxy: boolean;
+      };
+    };
+    config: {
+      archetype: string;
+      function: string;
+      direction: string;
+      startup: {
+        mode: string;
+        configured: boolean;
+      };
+    };
+    uniqueid: string;
+    swversion: string;
+    swconfigid: string;
+    productid: string;
+  };
+}
+
+export interface LightState {
+  on: boolean;
+  bri: number;
+  hue: number;
+  sat: number;
+  effect: string;
+  xy: number[];
+  ct: number;
+  alert: string;
+  colormode: string;
+  mode: string;
+  reachable: boolean;
+}
+
 export const state: State = {
-  title: "Hue Dev Controller",
+  title: 'Hue Dev Controller',
   bridge: {
-    ip: "",
-    apiKey: ""
+    ip: '',
+    apiKey: ''
   }
 };

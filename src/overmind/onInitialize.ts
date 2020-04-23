@@ -1,6 +1,6 @@
 import { OnInitialize } from "overmind";
 
 export const onInitialize: OnInitialize = async ({ state, effects }) => {
-  const initialConfig = await effects.api.getCurrentConfig(state.bridge);
-  state.config = initialConfig;
+  state.config = await effects.api.getCurrentConfig(state.bridge);
+  state.lightConfig = await effects.api.getCurrentLights(state.bridge);
 };
