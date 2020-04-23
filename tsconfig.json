@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
+    "outDir": "./dist",
     "noImplicitAny": true,
     "module": "CommonJS",
     "target": "ES5",
     "jsx": "react",
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "allowJs": true
   }
 }
