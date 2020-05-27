@@ -146,7 +146,7 @@ export interface LightState {
 export const state: State = {
   title: 'Hue Dev Controller',
   bridge: {
-    ip: '',
-    apiKey: ''
+    ip: '192.168.0.185',
+    apiKey: 'IAS6AADWD1OOGGIZsMMzNwxDoFt8t5pI13rN2COO'
   }
 };

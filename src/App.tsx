@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-import { LightStatus } from './components/LightStatus';
+import { Lights } from './components/Lights';
 
 export default function App() {
   return (
     <div className="container">
-      <LightStatus />
+      <Lights />
     </div>
   );
 }
